@@ -102,9 +102,10 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  // Solution code here...
-};
+const returnNames = (arr) => arr.reduce((a, b) => {
+  a.push(b.name);
+  return a;
+}, []);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -114,9 +115,10 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-  // Solution code here...
-};
+const reversedString = (str) => str.reduce((a, b) => {
+  a + b.charAt(str.length - 1);
+  return a;
+}, '');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
