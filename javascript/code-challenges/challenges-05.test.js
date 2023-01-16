@@ -115,11 +115,7 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => str.reduce((a, b) => {
-  a + b.charAt(str.length - 1);
-  return a;
-}, '');
-
+const reversedString = (str) => str.split('').reduce((a,b) => b + a);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
