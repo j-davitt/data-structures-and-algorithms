@@ -59,8 +59,9 @@ returns array of arrays.
 
 const updateNumbers = (obj) => {
   let newArr = [];
-  let a = Object.entries(obj);
-  a.forEach(e => newArr.push(e.join()));
+  for(const [key, value] of Object.entries(obj)) {
+    newArr.push(`${key}: ${value}`);
+  }
   return newArr;
 };
 
@@ -135,7 +136,18 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  
+  let children = 0;
+
+  arr.forEach(person => {
+    if(person.name === character){
+      Object.keys(person).forEach((key, idx) => {
+        if(key === 'children'){
+          children = Object.values(person)[idx].length;
+        }
+      });
+    }
+  });
+  return children ? true : false;
 
 };
 
