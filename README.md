@@ -22,3 +22,5 @@ To run your tests
 
 Table of Contents
 [Array Reverse](./javascript/arrayReverse/README.md)
+
+[insertShiftArray](./javascript/insertShiftArray/README.md)
