@@ -46,7 +46,7 @@ describe('Linked List', () => {
     list.insert('grape');
 
     expect(list.includes('grape')).toBeTruthy();
-    expect(!list.includes('camera')).toBeTruthy();
+    expect(list.includes('camera')).toBeFalsy();
   });
 
 });
