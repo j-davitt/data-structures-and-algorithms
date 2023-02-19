@@ -36,4 +36,17 @@ describe('Linked List', () => {
     expect(linkedString).toEqual('{ orange } -> { apple } -> NULL');
 
   });
+
+  it('should indicate whether a given value exists in the list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.insert('cherry');
+    list.insert('grape');
+
+    expect(list.includes('grape')).toBeTruthy();
+    expect(!list.includes('camera')).toBeTruthy();
+  });
+
 });
