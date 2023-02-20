@@ -31,3 +31,7 @@ insert - insert a value
 toString - returns a string representing each value in the Linked List
 
 includes - returns true if the value exists in the Linked List
+
+## Whiteboard
+
+![Whiteboard](../assets/challenge-06.png)
