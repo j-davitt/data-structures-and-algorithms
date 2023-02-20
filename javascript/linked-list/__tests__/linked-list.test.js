@@ -49,4 +49,76 @@ describe('Linked List', () => {
     expect(list.includes('camera')).toBeFalsy();
   });
 
+  it('should add a value to the end of the list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.append('cherry');
+
+    const linkedString = list.toString();
+
+    expect(list.head.value).toEqual('banana');
+    expect(linkedString).toEqual('{ banana } -> { orange } -> { apple } -> { cherry } -> NULL');
+
+  });
+
+  it('should add multiple values to the end of the list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.append('cherry');
+    list.append('grape');
+
+    const linkedString = list.toString();
+
+    expect(list.head.value).toEqual('banana');
+    expect(linkedString).toEqual('{ banana } -> { orange } -> { apple } -> { cherry } -> { grape } -> NULL');
+
+  });
+
+  it('should add a value before and after a specific value', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.insertBefore('apple', 'cherry');
+    list.insertAfter('banana', 'kiwi');
+
+    const linkedString = list.toString();
+
+    expect(list.head.value).toEqual('banana');
+    expect(linkedString).toEqual('{ banana } -> { kiwi } -> { orange } -> { cherry } -> { apple } -> NULL');
+
+  });
+
+  it('should add a value before first item in list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.insertBefore('banana', 'cherry');
+
+    const linkedString = list.toString();
+
+    // expect(list.head.value).toEqual('cherry');
+    expect(linkedString).toEqual('{ cherry } -> { banana } -> { orange } -> { apple } -> NULL');
+
+  });
+
+  it('should add a value after last item in list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.insertAfter('apple', 'cherry');
+
+    const linkedString = list.toString();
+
+    // expect(list.head.value).toEqual('cherry');
+    expect(linkedString).toEqual('{ banana } -> { orange } -> { apple } -> { cherry } -> NULL');
+
+  });
+
 });
