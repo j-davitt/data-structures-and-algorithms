@@ -82,6 +82,21 @@ class LinkedList {
       }
     }
   }
+
+  kthFromEnd(k) {
+    if(k < 0 || k > this.length) {
+      return 'Exception';
+    }
+    let temp = (this.length - 1) - k;
+    let current = this.head;
+    if(temp === 0){
+      return current.value;
+    }
+    for(let i = 0; i < temp; i++){
+      current = current.next;
+    }
+    return current.value;
+  }
 }
 
 class Node {

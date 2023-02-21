@@ -35,3 +35,4 @@ includes - returns true if the value exists in the Linked List
 ## Whiteboard
 
 ![Whiteboard](../assets/challenge-06.png)
+![Whiteboard](../assets/challenge7.png)
