@@ -121,4 +121,23 @@ describe('Linked List', () => {
 
   });
 
+  it('should return value k from end of list', () => {
+    const list = new LinkedList();
+    list.insert('apple');
+    list.insert('orange');
+    list.insert('banana');
+    list.insert('cherry');
+    list.insert('grape');
+
+
+
+    expect(list.kthFromEnd(2)).toEqual('banana');
+    expect(list.kthFromEnd(3)).toEqual('cherry');
+    expect(list.kthFromEnd(7)).toEqual('Exception');
+    expect(list.kthFromEnd(4)).toEqual('grape');
+    expect(list.kthFromEnd(0)).toEqual('apple');
+    expect(list.kthFromEnd(-1)).toEqual('Exception');
+
+  });
+
 });
