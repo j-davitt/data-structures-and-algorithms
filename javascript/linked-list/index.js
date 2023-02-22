@@ -99,6 +99,23 @@ class LinkedList {
   }
 }
 
+const zipLists = (list1, list2) => {
+  let current1 = list1.head;
+  let current2 = list2.head;
+  let list3 = new LinkedList();
+  while (current1 || current2) {
+    if (current1) {
+      list3.append(current1.value);
+      current1 = current1.next;
+    }
+    if (current2) {
+      list3.append(current2.value);
+      current2 = current2.next;
+    }
+  }
+  return list3;
+};
+
 class Node {
   constructor(value, next=null) {
     this.value = value;
@@ -106,4 +123,4 @@ class Node {
   }
 }
 
-module.exports = LinkedList;
+module.exports = { LinkedList, zipLists };

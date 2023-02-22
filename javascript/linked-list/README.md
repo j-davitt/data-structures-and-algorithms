@@ -1,7 +1,7 @@
 # Singly Linked List
 Learning linked lists with friends!
 
-Colab with Jordan, Adrienne, Tyler, Ken, and Ash
+Colab with Jordan, Adrienne, Tyler, Ken, Ash, Martin
 
 ## Challenge
 Node
@@ -38,3 +38,4 @@ includes - returns true if the value exists in the Linked List
 
 ![Whiteboard](../assets/challenge-06.png)
 ![Whiteboard](../assets/challenge7.png)
+![Whiteboard](../assets/challenge8.png)
