@@ -25,4 +25,4 @@ Extracts a value from the PseudoQueue, using a first-in, first-out approach.
 ## Whiteboard
 
 ![Whiteboard](../assets/challenge11.png)
-
+![Whiteboard](../assets/challenge12.png)
