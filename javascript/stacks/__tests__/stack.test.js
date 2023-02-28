@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack, Queue } = require('../');
+const { Stack, Queue, AnimalShelter } = require('../');
 
 describe('Stack', () => {
   it('Can successfully push onto a stack', () => {
@@ -39,6 +39,28 @@ describe('Stack', () => {
     stack.pop();
     stack.pop();
     expect(stack.top).toEqual(null);
+  });
+
+  it('Can add animals to correct queue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('Jordan', 'dog');
+    shelter.enqueue('Mr Whiskers', 'cat');
+    shelter.enqueue('Lionel', 'dog');
+
+    expect(shelter.dogs.front.name).toEqual('Jordan');
+    expect(shelter.cats.front.name).toEqual('Mr Whiskers');
+  });
+
+  it('Can remove animals from queue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('Jordan', 'dog');
+    shelter.enqueue('Mr Whiskers', 'cat');
+    shelter.enqueue('Lionel', 'dog');
+
+    shelter.dequeue('dog');
+
+    expect(shelter.dogs.front.name).toEqual('Lionel');
+    expect(shelter.cats.front.name).toEqual('Mr Whiskers');
   });
 
 });
