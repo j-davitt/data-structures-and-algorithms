@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack, Queue, AnimalShelter } = require('../');
+const { Stack, Queue, AnimalShelter, validateBrackets } = require('../');
 
 describe('Stack', () => {
   it('Can successfully push onto a stack', () => {
@@ -61,6 +61,16 @@ describe('Stack', () => {
 
     expect(shelter.dogs.front.name).toEqual('Lionel');
     expect(shelter.cats.front.name).toEqual('Mr Whiskers');
+  });
+
+  it('Can validate brackets', () => {
+    let str = '(){}[]';
+    let str2 = '(())[]';
+    let str3 = '(()';
+
+    expect(validateBrackets(str)).toBeTruthy();
+    expect(validateBrackets(str2)).toBeTruthy();
+    expect(validateBrackets(str3)).toBeFalsy();
   });
 
 });
