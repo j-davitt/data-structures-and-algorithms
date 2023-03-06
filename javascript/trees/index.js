@@ -96,6 +96,13 @@ class Tree {
 
 class BinaryTree extends Tree {
 
+  add(value){
+
+  }
+
+  contains(value){
+    
+  }
 }
 
 
