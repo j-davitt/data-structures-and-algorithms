@@ -5,7 +5,7 @@
 // breadth first goes layer by layer downward
 
 class Node {
-  constructor(value){
+  constructor(value) {
     this.value = value;
     this.left = null;
     this.right = null;
@@ -14,34 +14,34 @@ class Node {
 
 // keep this for later challenge
 class KaryNode {
-  constructor(value, k){
+  constructor(value, k) {
     this.value = value;
     this.children = new Array(k).fill(null);
   }
 }
 //keep for later
 class KaryTree {
-  constructor(){
+  constructor() {
     this.root = null;
   }
 }
 
 class Tree {
-  constructor(){
+  constructor() {
     this.root = null;
   }
 
   // log before order
-  preOrder(){
+  preOrder() {
     const arr = [];
 
     const traverse = (node) => {
       arr.push(node.value);
 
-      if(node.left){
+      if (node.left) {
         traverse(node.left);
       }
-      if(node.right){
+      if (node.right) {
         traverse(node.right);
       }
     };
@@ -51,18 +51,18 @@ class Tree {
   }
 
   // log in between order
-  inOrder(){
+  inOrder() {
     const arr = [];
 
     const traverse = (node) => {
 
-      if(node.left){
+      if (node.left) {
         traverse(node.left);
       }
 
       arr.push(node.value);
 
-      if(node.right){
+      if (node.right) {
         traverse(node.right);
       }
     };
@@ -72,16 +72,16 @@ class Tree {
   }
 
   // log after order
-  postOrder(){
+  postOrder() {
     const arr = [];
 
     const traverse = (node) => {
 
-      if(node.left){
+      if (node.left) {
         traverse(node.left);
       }
 
-      if(node.right){
+      if (node.right) {
         traverse(node.right);
       }
 
@@ -95,16 +95,54 @@ class Tree {
 }
 
 class BinaryTree extends Tree {
-
-  add(value){
-
+  super() {
+    this.root = null;
   }
 
-  contains(value){
-    
+  add(value) {
+    let newNode = new Node(value);
+    if (this.root === null) {
+      this.root = newNode;
+      return;
+    }
+    let current = this.root;
+
+    while (current) {
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+          return;
+        }
+        current = current.right;
+      }
+    }
   }
-}
+
+  contains(value) {
+    if (this.root === null) {
+      return false;
+    }
+    let current = this.root;
+    let temp = false;
+
+    while (current && !temp) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else if (value === current.value) {
+        temp = true;
+      }
+    }
+    return temp;
+  }
 
 
 
-module.exports = { Node, Tree };
+module.exports = { Node, Tree, BinaryTree };
