@@ -92,6 +92,29 @@ class Tree {
     return arr;
   }
 
+  getMax(){
+    let temp = this.root.value;
+
+    const traverse = (node) => {
+
+      if (node.left) {
+        if(node.left.value > temp){
+          temp = node.left.value;
+        }
+        traverse(node.left);
+      }
+
+      if (node.right) {
+        if(node.right.value > temp){
+          temp = node.right.value;
+        }
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return temp;
+  }
+
 }
 
 class BinaryTree extends Tree {
@@ -142,7 +165,7 @@ class BinaryTree extends Tree {
     }
     return temp;
   }
-
+}
 
 
 module.exports = { Node, Tree, BinaryTree };
