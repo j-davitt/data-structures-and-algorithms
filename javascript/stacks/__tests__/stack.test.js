@@ -41,6 +41,29 @@ describe('Stack', () => {
     expect(stack.top).toEqual(null);
   });
 
+  it('Can successfully make a queue', () => {
+    let queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+
+
+    expect(queue.front.value).toEqual(1);
+    expect(queue.back.value).toEqual(3);
+  });
+
+  it('Can successfully remove from a queue', () => {
+    let queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+
+    queue.dequeue();
+
+    expect(queue.front.value).toEqual(2);
+    expect(queue.back.value).toEqual(3);
+  });
+
   it('Can add animals to correct queue', () => {
     let shelter = new AnimalShelter();
     shelter.enqueue('Jordan', 'dog');
