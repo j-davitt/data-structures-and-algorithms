@@ -92,20 +92,20 @@ class Tree {
     return arr;
   }
 
-  getMax(){
+  getMax() {
     let temp = this.root.value;
 
     const traverse = (node) => {
 
       if (node.left) {
-        if(node.left.value > temp){
+        if (node.left.value > temp) {
           temp = node.left.value;
         }
         traverse(node.left);
       }
 
       if (node.right) {
-        if(node.right.value > temp){
+        if (node.right.value > temp) {
           temp = node.right.value;
         }
         traverse(node.right);
@@ -168,4 +168,21 @@ class BinaryTree extends Tree {
 }
 
 
-module.exports = { Node, Tree, BinaryTree };
+function breadthFirst(tree) {
+  let arr = [];
+  let queue = [tree.root];
+
+  while (queue.length > 0) {
+    let current = queue.shift();
+    arr.push(current.value);
+    if(current.left){
+      queue.push(current.left);
+    }
+    if(current.right){
+      queue.push(current.right);
+    }
+  }
+  return arr;
+}
+
+module.exports = { Node, Tree, BinaryTree, breadthFirst };
