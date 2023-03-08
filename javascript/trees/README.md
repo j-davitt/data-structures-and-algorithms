@@ -26,3 +26,4 @@ NOTE: Traverse the input tree using a Breadth-first approach
 
 ![Whiteboard](../assets/challenge16.png)
 ![Whiteboard](../assets/challenge17.png)
+![Whiteboard](../assets/challenge18.png)
