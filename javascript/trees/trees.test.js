@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node, Tree, BinaryTree, breadthFirst } = require('./index');
+const { Node, Tree, BinaryTree, breadthFirst, fizzBuzzTree } = require('./index');
 
 describe('Tree', () => {
   it('Should create a tree', () => {
@@ -42,6 +42,23 @@ describe('Tree', () => {
 
     let breadth = breadthFirst(tree);
     expect(breadth).toEqual([5,1,8,10]);
+
+  });
+
+  it('fizzbuzz works', () => {
+    let tree = new Tree();
+    tree.root = new Node(5);
+    tree.root.left = new Node(1);
+    tree.root.right = new Node(8);
+    tree.root.left.left = new Node(10);
+    tree.root.left.right = new Node(15);
+
+    let test = fizzBuzzTree(tree);
+    expect(test.root.value).toEqual('Buzz');
+    expect(test.root.left.value).toEqual('1');
+    expect(test.root.right.value).toEqual('8');
+    expect(test.root.left.left.value).toEqual('Buzz');
+    expect(test.root.left.right.value).toEqual('FizzBuzz');
 
   });
 });
