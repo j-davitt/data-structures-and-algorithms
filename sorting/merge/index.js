@@ -6,13 +6,14 @@ function mergeSort(arr) {
   if (n > 1) {
     let mid = Math.floor(n / 2);
     let left = arr.slice(0, mid);
-    let right = arr.slice(mid, n - 1);
+    let right = arr.slice(mid, n);
 
     mergeSort(left);
     mergeSort(right);
 
-    mergeSort(left, right, arr);
+    merge(left, right, arr);
   }
+  return arr;
 }
 
 function merge(left, right, arr) {
@@ -21,22 +22,28 @@ function merge(left, right, arr) {
   let k = 0;
 
   while(i < left.length && j < right.length) {
-    if(left[i] === right[j]){
+    if(left[i] <= right[j]){
       arr[k] = left[i];
-      i+=1;
+      i++;
     } else {
       arr[k] = right[j];
-      j+=1;
+      j++;
     }
-    k+=1;
+    k++;
   }
   if(i === left.length){
-    arr[k] = right[j];
-    k+=1;
-    j+=1;
+    while(j < right.length){
+      arr[k] = right[j];
+      k++;
+      j++;
+    }
   } else {
-    arr[k] = left[i];
-    k+=1;
-    i+=1;
+    while(i < left.length){
+      arr[k] = left[i];
+      k++;
+      i++;
+    }
   }
 }
+
+module.exports = { merge, mergeSort };
