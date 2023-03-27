@@ -75,28 +75,5 @@ function repeatedWord(str){
   return null;
 }
 
-// function repeatedWord(str) {
-//   const wutIsThose = [' ', ',', '.', ';', ':', '-', '_', '!', '?'];
-//   const table = new HashTable(1024);
-//   let currentWord = '';
-//   for (let i = 0; i < str.length; i++) {
-//     const char = str.charAt(i).toLowerCase();
-//     if (wutIsThose.includes(char)) {
-//       if (currentWord.length > 0) {
-//         if (table.has(currentWord)) {
-//           return currentWord;
-//         }
-//         table.set(currentWord, true);
-//         currentWord = '';
-//       }
-//     } else {
-//       currentWord += char;
-//     }
-//   }
-//   if (currentWord.length > 0 && table.has(currentWord)) {
-//     return currentWord;
-//   }
-//   return null;
-// }
 
 module.exports = { HashTable, repeatedWord };
