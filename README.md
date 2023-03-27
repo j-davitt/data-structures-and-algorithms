@@ -27,3 +27,4 @@ Table of Contents
 
 [linked-list](./javascript/linked-list/README.md)
 
+[Hash Table](./sorting/hashtable/README.md)
