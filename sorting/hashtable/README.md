@@ -19,6 +19,8 @@ Implement a Hashtable Class with the following methods:
   - Arguments: key
   - Returns: Index in the collection for that key
 
+![Whiteboard](../assets/challenge31.png)
+
 ## Approach & Efficiency
 
 We looked through the demo and used ChatGPT to help understand certain aspects of hash tables.
