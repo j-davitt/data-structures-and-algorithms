@@ -52,4 +52,51 @@ class HashTable {
   }
 }
 
-module.exports = { HashTable };
+function repeatedWord(str){
+  const table = new HashTable(1024);
+  let punctuation = [',', '.', ';', ':', '-', '_', '!', '?'];
+  let newStr = '';
+  for(let i = 0; i < str.length; i++) {
+    if(!punctuation.includes(str[i])){
+      newStr += str[i];
+    }
+  }
+
+  let wordArr = newStr.split(' ');
+
+  for(let i = 0; i < wordArr.length; i++) {
+    let word = wordArr[i].toLowerCase();
+    if(table.has(word)){
+      return word;
+    } else {
+      table.set(word, true);
+    }
+  }
+  return null;
+}
+
+// function repeatedWord(str) {
+//   const wutIsThose = [' ', ',', '.', ';', ':', '-', '_', '!', '?'];
+//   const table = new HashTable(1024);
+//   let currentWord = '';
+//   for (let i = 0; i < str.length; i++) {
+//     const char = str.charAt(i).toLowerCase();
+//     if (wutIsThose.includes(char)) {
+//       if (currentWord.length > 0) {
+//         if (table.has(currentWord)) {
+//           return currentWord;
+//         }
+//         table.set(currentWord, true);
+//         currentWord = '';
+//       }
+//     } else {
+//       currentWord += char;
+//     }
+//   }
+//   if (currentWord.length > 0 && table.has(currentWord)) {
+//     return currentWord;
+//   }
+//   return null;
+// }
+
+module.exports = { HashTable, repeatedWord };
