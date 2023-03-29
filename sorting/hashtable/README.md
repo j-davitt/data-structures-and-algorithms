@@ -46,3 +46,4 @@ For tests: npm run test
 
 - Adrienne Frey
 - Jordan Covington
+- John Chavez
