@@ -1,8 +1,10 @@
 'use strict';
-const { HashTable,repeatedWord } = require('./index');
+const { HashTable,repeatedWord,leftJoin } = require('./index');
 
 const tableSize = 1024;
 const table = new HashTable(tableSize);
+const tableTwo = new HashTable(tableSize);
+const tableThree = new HashTable(tableSize);
 
 const hashOne = table.hash('Jordan');
 const hashTwo = table.hash('Adrienne');
@@ -11,6 +13,9 @@ const hashThree = table.hash('Joe');
 table.set('Jordan', 'Beer');
 table.set('Adrienne', 'Sleeping');
 table.set('Joe', 'Whiskey');
+tableTwo.set('Joe', 'Whiskey');
+tableTwo.set('Adrienne', 'Sleeping');
+tableThree.set('Joe', 'Good');
 
 describe('HashTable', () => {
   it('Sets a key/value', () => {
@@ -57,6 +62,12 @@ describe('HashTable', () => {
     expect(repeatedWord('It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn\'t know what I was doing in New York...')).toEqual('summer');
 
     expect(repeatedWord('This is a test for null')).toEqual(null);
+  });
+
+  it('leftJoins correctly', () => {
+
+    expect(leftJoin(tableTwo, tableThree)).toEqual([['Joe', 'Whiskey', 'Good'], ['Adrienne', 'Sleeping', null]]);
+
   });
 
 });
