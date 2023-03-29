@@ -76,4 +76,17 @@ function repeatedWord(str){
 }
 
 
-module.exports = { HashTable, repeatedWord };
+const leftJoin = (left, right) => {
+  let result = [];
+  let leftKeys = left.keys();
+  for(let i = 0; i < leftKeys.length; i++){
+    let key = leftKeys[i];
+    let value = left.get(key);
+    let rightValue = right.get(key);
+    result.push([key, value, rightValue]);
+  }
+  return result;
+};
+
+
+module.exports = { HashTable, repeatedWord, leftJoin };
