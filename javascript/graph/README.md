@@ -3,6 +3,7 @@
 ## breadthFirst traversal
 
 ![whiteboard](../assets/challenge36.png)
+![whiteboard](../assets/challenge37.png)
 
 ## Problem Domain
 

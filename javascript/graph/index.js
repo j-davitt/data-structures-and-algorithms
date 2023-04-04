@@ -79,5 +79,29 @@ class Graph {
   }
 }
 
+const businessTrip = (graph, cities) => {
+  let cost = 0;
+  let currentCity = null;
+  let nextCity = null;
+  let connection = false;
+  while(cities.length) {
+    currentCity = cities.shift();
+    if(!cities.length) {
+      return cost;
+    } else {
+      nextCity = cities[0];
+      const neighbors = graph.getNeighbors(currentCity);
+      for (let neighbor of neighbors) {
+        if (neighbor.vertex === nextCity) {
+          cost += neighbor.weight;
+          connection=true;
+        }
+      }
+      if(!connection) return null;
+      connection=false;
+    }
+  }
+  return cost;
+};
 
-module.exports = { Graph, Vertex, Edge };
+module.exports = { Graph, Vertex, Edge, businessTrip };
