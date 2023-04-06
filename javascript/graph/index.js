@@ -77,6 +77,33 @@ class Graph {
     }
     return visitedNodes;
   }
+
+  depthFirst(startNode, callback) {
+    const stack = [];
+    const visitedNodes = new Set();
+
+    stack.push(startNode);
+    visitedNodes.add(startNode);
+    let currentNode = null;
+
+    while (stack.length) {
+      currentNode = stack.pop();
+
+      if (callback) callback(currentNode);
+
+      const neighbors = this.getNeighbors(currentNode);
+      for (let neighbor of neighbors) {
+        const neighborNode = neighbor.vertex;
+        if (visitedNodes.has(neighborNode)) {
+          continue;
+        } else {
+          visitedNodes.add(neighborNode);
+        }
+        stack.push(neighborNode);
+      }
+    }
+    return visitedNodes;
+  }
 }
 
 const businessTrip = (graph, cities) => {
