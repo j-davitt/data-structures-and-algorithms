@@ -24,7 +24,7 @@ class Graph {
     return vertex;
   }
 
-  addDirectedEdge(startVertex, endVertex, weight=0) {
+  addDirectedEdge(startVertex, endVertex, weight = 0) {
     // check if the vertex exists
     if (!this.adjacencyList.has(startVertex) || !this.adjacencyList.has(endVertex)) {
       console.log('No vertex');
@@ -111,9 +111,9 @@ const businessTrip = (graph, cities) => {
   let currentCity = null;
   let nextCity = null;
   let connection = false;
-  while(cities.length) {
+  while (cities.length) {
     currentCity = cities.shift();
-    if(!cities.length) {
+    if (!cities.length) {
       return cost;
     } else {
       nextCity = cities[0];
@@ -121,14 +121,41 @@ const businessTrip = (graph, cities) => {
       for (let neighbor of neighbors) {
         if (neighbor.vertex === nextCity) {
           cost += neighbor.weight;
-          connection=true;
+          connection = true;
         }
       }
-      if(!connection) return null;
-      connection=false;
+      if (!connection) return null;
+      connection = false;
     }
   }
   return cost;
+};
+
+const isConnected = (graph, nodeA, nodeB) => {
+  const stack = [];
+  const visitedNodes = new Set();
+
+  stack.push(nodeA);
+  visitedNodes.add(nodeA);
+  let currentNode = null;
+
+  while (stack.length) {
+    currentNode = stack.pop();
+
+    if (currentNode === nodeB) return true;
+
+    const neighbors = this.getNeighbors(currentNode);
+    for (let neighbor of neighbors) {
+      const neighborNode = neighbor.vertex;
+      if (visitedNodes.has(neighborNode)) {
+        continue;
+      } else {
+        visitedNodes.add(neighborNode);
+      }
+      stack.push(neighborNode);
+    }
+  }
+  return false;
 };
 
 module.exports = { Graph, Vertex, Edge, businessTrip };
