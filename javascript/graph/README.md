@@ -6,6 +6,7 @@
 ![whiteboard](../assets/challenge37.png)
 ![whiteboard](../assets/challenge38.png)
 ![whiteboard](../assets/challenge39.png)
+![whiteboard](../assets/finalWB.png)
 
 ## Problem Domain
 
