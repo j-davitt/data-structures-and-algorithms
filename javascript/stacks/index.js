@@ -194,7 +194,7 @@ function validateBrackets(str) {
       }
     }
   }
-  if(stack.top !== null){
+  if (stack.top !== null) {
     return false;
   }
   return true;

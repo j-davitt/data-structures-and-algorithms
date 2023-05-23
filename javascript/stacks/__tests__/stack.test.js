@@ -29,6 +29,25 @@ describe('Stack', () => {
     expect(stack.top.value).toEqual(2);
   });
 
+  it('Can peek a stack', () => {
+    let stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    expect(stack.peek()).toEqual(3);
+  });
+
+  it('Can chek if stack is empty', () => {
+    let stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    expect(stack.isEmpty()).toEqual(false);
+  });
+
+
   it('Can successfully empty a stack with pop', () => {
     let stack = new Stack();
     stack.push(1);
@@ -62,6 +81,15 @@ describe('Stack', () => {
 
     expect(queue.front.value).toEqual(2);
     expect(queue.back.value).toEqual(3);
+  });
+
+  it('Can successfully peek a queue', () => {
+    let queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+
+    expect(queue.peek()).toEqual(1);
   });
 
   it('Can add animals to correct queue', () => {
